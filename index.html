@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="ja">
 <head>
@@ -8,29 +7,30 @@
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&display=swap" rel="stylesheet">
     <style>
         :root {
-            --bg-main: #f4f5f7;
+            /* 変数名はそのままに、女子受けするふんわりピンクベージュ系に変更 */
+            --bg-main: #fffafb;
             --surface: #ffffff;
-            --navy: #1e293b;        /* スーツを思わせるネイビー */
-            --gold: #b48600;        /* 金のしゃちほこゴールド */
-            --miso: #7c2d12;        /* 八丁味噌ブラウン */
-            --text-main: #334155;
-            --text-muted: #64748b;
-            --border: #e2e8f0;
-            --shadow: 0 4px 16px rgba(30, 41, 59, 0.08);
-            --radius: 8px;          /* ビジネスライクな少しシャープな角 */
+            --navy: #e69a9e;        /* くすみピンク（メインカラー） */
+            --gold: #d4af37;        /* 上品なゴールド */
+            --miso: #a88b7d;        /* 柔らかいミルクティーブラウン */
+            --text-main: #5a4a42;   /* 優しいダークブラウン */
+            --text-muted: #9c8a82;
+            --border: #fce8e9;
+            --shadow: 0 8px 24px rgba(230, 154, 158, 0.15);
+            --radius: 16px;         /* ふんわりした角丸 */
         }
 
         /* ===== DARK MODE ===== */
         body.dark-mode {
-            --bg-main: #0f172a;
-            --surface: #1e293b;
-            --navy: #e2e8f0;
-            --gold: #d4af37;
-            --miso: #ea580c;
-            --text-main: #f1f5f9;
-            --text-muted: #94a3b8;
-            --border: #334155;
-            --shadow: 0 4px 16px rgba(0, 0, 0, 0.4);
+            --bg-main: #2d2628;
+            --surface: #3a3234;
+            --navy: #f0b9bc;
+            --gold: #ebd588;
+            --miso: #d4c4bc;
+            --text-main: #fdfbfb;
+            --text-muted: #bdaeab;
+            --border: #52474a;
+            --shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
         }
 
         * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -45,13 +45,13 @@
 
         /* ===== HEADER ===== */
         header {
-            background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
-            color: #ffffff;
+            background: linear-gradient(135deg, #ffe0e5 0%, #f3b5bc 100%);
+            color: #5a4a42;
             padding: 24px 20px 20px;
             text-align: center;
             position: relative;
             overflow: hidden;
-            border-bottom: 3px solid var(--gold);
+            border-bottom: 3px solid #ffffff;
         }
         .header-title {
             font-size: 1.5rem;
@@ -61,28 +61,30 @@
         }
         .header-sub {
             font-size: 0.8rem;
-            color: #cbd5e1;
+            color: #8e7365;
             margin-top: 6px;
             letter-spacing: 0.1em;
         }
         .date-time {
-            background: rgba(255,255,255,0.1);
+            background: rgba(255,255,255,0.6);
             border-radius: 4px;
             padding: 6px 14px;
             display: inline-block;
             font-size: 0.85rem;
             margin-top: 12px;
-            border: 1px solid rgba(255,255,255,0.2);
+            border: 1px solid rgba(255,255,255,0.8);
+            color: #5a4a42;
+            font-weight: 500;
         }
         .theme-toggle-btn {
             position: absolute;
             top: 16px;
             right: 16px;
-            background: rgba(255,255,255,0.15);
-            border: 1px solid rgba(255,255,255,0.3);
-            color: white;
+            background: rgba(255,255,255,0.5);
+            border: 1px solid rgba(255,255,255,0.8);
+            color: #5a4a42;
             padding: 6px 10px;
-            border-radius: 4px;
+            border-radius: 12px;
             font-size: 0.75rem;
             cursor: pointer;
             z-index: 10;
@@ -116,8 +118,8 @@
             white-space: nowrap;
         }
         .tab-btn.active {
-            color: var(--gold);
-            border-bottom-color: var(--gold);
+            color: var(--navy);
+            border-bottom-color: var(--navy);
             font-weight: 700;
         }
 
@@ -141,12 +143,12 @@
         .card-title {
             font-size: 1rem;
             font-weight: 700;
-            color: var(--navy);
+            color: var(--miso);
             margin-bottom: 14px;
             display: flex;
             align-items: center;
             gap: 8px;
-            border-bottom: 2px solid var(--bg-main);
+            border-bottom: 2px dashed var(--bg-main);
             padding-bottom: 8px;
         }
 
@@ -157,7 +159,7 @@
             background: var(--navy);
             color: white;
             border: none;
-            border-radius: 4px;
+            border-radius: 20px;
             font-size: 0.85rem;
             font-weight: 600;
             cursor: pointer;
@@ -177,45 +179,45 @@
 
         .quick-btns { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
         .qbtn {
-            padding: 10px; border-radius: 4px; border: 1px solid var(--border); background: var(--surface);
+            padding: 10px; border-radius: 8px; border: 1px solid var(--border); background: var(--surface);
             font-size: 0.8rem; cursor: pointer; font-weight: 500; color: var(--text-main); text-align: left;
         }
         .qbtn:hover { background: var(--bg-main); }
-        .qbtn-strong { border-left: 3px solid var(--gold); }
+        .qbtn-strong { border-left: 3px solid var(--navy); }
 
         /* ===== MAP ===== */
         iframe.map-frame {
-            width: 100%; height: 240px; border-radius: 4px; border: 1px solid var(--border); background: var(--bg-main);
+            width: 100%; height: 240px; border-radius: 8px; border: 1px solid var(--border); background: var(--bg-main);
         }
 
         /* ===== LISTS & TIPS ===== */
         .tip-item {
-            background: var(--bg-main); border-radius: 4px; padding: 12px; margin-bottom: 8px; 
-            font-size: 0.85rem; line-height: 1.6; border-left: 3px solid var(--miso);
+            background: var(--bg-main); border-radius: 8px; padding: 12px; margin-bottom: 8px; 
+            font-size: 0.85rem; line-height: 1.6; border-left: 3px solid var(--navy);
         }
-        .tip-item strong { color: var(--navy); }
+        .tip-item strong { color: var(--miso); }
         .tip-item a { color: var(--gold); font-weight: 500; text-decoration: none; }
         .tip-item a:hover { text-decoration: underline; }
 
         /* ===== DIARY ===== */
         .diary-textarea {
             width: 100%; min-height: 100px; padding: 12px; border: 1px solid var(--border);
-            border-radius: 4px; font-size: 0.85rem; line-height: 1.6; background: var(--bg-main);
+            border-radius: 8px; font-size: 0.85rem; line-height: 1.6; background: var(--bg-main);
             color: var(--text-main); outline: none; resize: vertical; margin-bottom: 12px;
         }
-        .diary-textarea:focus { border-color: var(--gold); box-shadow: 0 0 0 2px rgba(180,134,0,0.1); }
+        .diary-textarea:focus { border-color: var(--navy); box-shadow: 0 0 0 2px rgba(230,154,158,0.2); }
         
         .ai-response {
-            display: none; margin-top: 16px; padding: 16px; background: #f0fdf4; 
-            border: 1px solid #bbf7d0; border-radius: 4px; border-left: 4px solid #16a34a;
+            display: none; margin-top: 16px; padding: 16px; background: #fff0f5; 
+            border: 1px solid #fce8e9; border-radius: 8px; border-left: 4px solid var(--navy);
         }
-        body.dark-mode .ai-response { background: #064e3b; border-color: #065f46; }
+        body.dark-mode .ai-response { background: #4a3539; border-color: #52474a; }
 
         /* ===== CALCULATOR ===== */
         .calc-row { display: flex; align-items: center; gap: 10px; margin-bottom: 10px; }
-        .calc-input { flex: 1; padding: 10px; border: 1px solid var(--border); border-radius: 4px; font-size: 1rem; background: var(--bg-main); color: var(--text-main); text-align: right; }
+        .calc-input { flex: 1; padding: 10px; border: 1px solid var(--border); border-radius: 8px; font-size: 1rem; background: var(--bg-main); color: var(--text-main); text-align: right; }
         
-        footer { text-align: center; padding: 30px 20px; font-size: 0.75rem; color: var(--text-muted); border-top: 1px solid var(--border); margin-top: 20px; }
+        footer { text-align: center; padding: 30px 20px; font-size: 0.75rem; color: var(--text-muted); border-top: 1px dashed var(--border); margin-top: 20px; }
     </style>
 </head>
 <body>
@@ -223,40 +225,40 @@
 <header>
     <button class="theme-toggle-btn" onclick="document.body.classList.toggle('dark-mode')">画面切替</button>
     <div class="header-title">Nagoya Daily & Business</div>
-    <div class="header-sub">日々の業務と名古屋ライフをでらスマートにいたします</div>
+    <div class="header-sub">お仕事もプライベートも、でら楽しく快適にするわね</div>
     <div class="date-time" id="dt"></div>
 </header>
 
 <nav class="nav-tabs">
-    <button class="tab-btn active" onclick="switchTab('home')">🏠 ホームですわ</button>
+    <button class="tab-btn active" onclick="switchTab('home')">🏠 ホームだわ</button>
     <button class="tab-btn" onclick="switchTab('map')">📍 検索・マップ</button>
     <button class="tab-btn" onclick="switchTab('food')">🍽️ なごやめし</button>
     <button class="tab-btn" onclick="switchTab('diary')">📔 業務・日常日記</button>
     <button class="tab-btn" onclick="switchTab('calc')">🧮 経費・計算</button>
-    <button class="tab-btn" onclick="switchTab('phrase')">🗣️ アイスブレイク</button>
+    <button class="tab-btn" onclick="switchTab('phrase')">🗣️ リアル名古屋弁</button>
     <button class="tab-btn" onclick="switchTab('transport')">🚇 交通手段</button>
     <button class="tab-btn" onclick="switchTab('tips')">📋 ローカルルール</button>
 </nav>
 
 <div class="section active" id="sec-home">
     <div class="card">
-        <div class="card-title">🌤️ 今日の名古屋の天気でございます</div>
+        <div class="card-title">🌤️ 今日の名古屋のお天気だわ</div>
         <div id="weather-content">
-            <div style="text-align:center; color:var(--text-muted); padding:20px; font-size:0.85rem;">⏳ 天気情報を取得しておりますでね...少々お待ちちょうだい</div>
+            <div style="text-align:center; color:var(--text-muted); padding:20px; font-size:0.85rem;">⏳ 天気情報を取得してるでね...ちょっと待っててちょうだい</div>
         </div>
     </div>
 
     <div class="card">
-        <div class="card-title">📰 ビジネス・ニュース情報ですわ</div>
+        <div class="card-title">📰 ビジネス・ニュース情報をチェックしてね</div>
         <div style="display:flex; flex-direction:column; gap:8px;">
             <button class="qbtn qbtn-strong" onclick="window.open('https://www.nikkei.com/','_blank')">
-                <div style="font-weight:700;">日本経済新聞</div><div style="font-size:0.7rem; color:var(--text-muted);">ビジネスニュースの確認ですわ</div>
+                <div style="font-weight:700;">日本経済新聞</div><div style="font-size:0.7rem; color:var(--text-muted);">ビジネスニュースの確認だわ</div>
             </button>
             <button class="qbtn qbtn-strong" style="border-left-color: #ef4444;" onclick="window.open('https://finance.yahoo.co.jp/','_blank')">
-                <div style="font-weight:700;">Yahoo!ファイナンス</div><div style="font-size:0.7rem; color:var(--text-muted);">株価・企業業績のチェックでございます</div>
+                <div style="font-weight:700;">Yahoo!ファイナンス</div><div style="font-size:0.7rem; color:var(--text-muted);">株価・企業業績のチェックだわ</div>
             </button>
             <button class="qbtn qbtn-strong" style="border-left-color: #3b82f6;" onclick="window.open('https://www3.nhk.or.jp/news/local/tokai/','_blank')">
-                <div style="font-weight:700;">NHK 東海NEWS WEB</div><div style="font-size:0.7rem; color:var(--text-muted);">愛知・名古屋のローカルニュースですわね</div>
+                <div style="font-weight:700;">NHK 東海NEWS WEB</div><div style="font-size:0.7rem; color:var(--text-muted);">愛知・名古屋のローカルニュースだでね</div>
             </button>
         </div>
     </div>
@@ -264,100 +266,148 @@
 
 <div class="section" id="sec-map">
     <div class="card">
-        <div class="card-title">📍 現在地周辺・ルート検索でございます</div>
-        <button class="btn-primary" onclick="initMap()" style="margin-bottom:10px;">📡 現在地を取得してマップ表示いたしますわ</button>
-        <div id="map-status" style="font-size: 0.75rem; color: var(--text-muted); margin-bottom: 8px; text-align: center;">ボタンを押すと現在地周辺を表示いたしますでね</div>
-        <iframe id="map-frame" class="map-frame" src="https://maps.google.com/maps?q=名古屋駅&hl=ja&z=15&output=embed" allowfullscreen loading="lazy"></iframe>
+        <div class="card-title">📍 現在地周辺・ルート検索だわ</div>
+        <button class="btn-primary" onclick="initMap()" style="margin-bottom:10px;">📡 現在地を取得してマップ表示するわ</button>
+        <div id="map-status" style="font-size: 0.75rem; color: var(--text-muted); margin-bottom: 8px; text-align: center;">ボタンを押すと現在地周辺を表示するでね</div>
+        <iframe id="map-frame" class="map-frame" src="https://maps.google.co.jp/maps?q=名古屋駅&output=embed" allowfullscreen loading="lazy"></iframe>
         
         <div style="margin-top:16px;">
-            <div style="font-size:0.85rem; font-weight:600; margin-bottom:8px;">目的地へのルートをお調べいたします</div>
+            <div style="font-size:0.85rem; font-weight:600; margin-bottom:8px;">目的地へのルートを調べるでね</div>
             <div style="display:flex; gap:8px;">
-                <input type="text" id="route-dest" class="search-input" placeholder="例：名古屋駅、伏見駅、客先名">
+                <input type="text" id="route-dest" class="search-input" placeholder="例：オアシス21、客先名">
                 <button class="search-go" onclick="routeTo('route-dest')">検索</button>
             </div>
         </div>
     </div>
 
     <div class="card">
-        <div class="card-title">🔍 周辺のクイック検索ですわ <a href="https://www.google.com/maps" target="_blank" style="font-size:0.7rem; color:var(--gold); margin-left:auto; font-weight:normal; text-decoration:none;">[Google Mapsを開く]</a></div>
+        <div class="card-title">🔍 周辺のサクッと検索 <a href="https://maps.google.co.jp/" target="_blank" style="font-size:0.7rem; color:var(--gold); margin-left:auto; font-weight:normal; text-decoration:none;">[Google Mapsを開く]</a></div>
         <div class="quick-btns">
-            <button class="qbtn" onclick="searchNearby('コンビニ')">🏪 コンビニを探しますわ</button>
-            <button class="qbtn" onclick="searchNearby('カフェ・喫茶店')">☕ カフェ・喫茶店でございます</button>
-            <button class="qbtn" onclick="searchNearby('居酒屋 個室')">🏮 居酒屋（接待・会食）ですわ</button>
-            <button class="qbtn" onclick="searchNearby('コインパーキング')">🅿️ 駐車場を探しますでね</button>
-            <button class="qbtn" onclick="searchNearby('薬局 ドラッグストア')">💊 薬局・ドラッグストア</button>
-            <button class="qbtn" onclick="searchNearby('ATM')">🏧 銀行・ATMでございますね</button>
+            <button class="qbtn" onclick="searchNearby('おしゃれ カフェ')">🍰 おしゃれカフェ</button>
+            <button class="qbtn" onclick="searchNearby('コンビニ')">🏪 近くのコンビニ</button>
+            <button class="qbtn" onclick="searchNearby('個室 ランチ')">🥗 個室ランチ・接待</button>
+            <button class="qbtn" onclick="searchNearby('コインパーキング')">🅿️ 駐車場を探すわ</button>
+            <button class="qbtn" onclick="searchNearby('ドラッグストア コスメ')">💄 ドラッグストア</button>
+            <button class="qbtn" onclick="searchNearby('ATM')">🏧 銀行・ATM</button>
+        </div>
+    </div>
+
+    <div class="card">
+        <div class="card-title">🏯 休日のおすすめ！ときめき観光スポット</div>
+        <div class="tip-item">
+            <strong>✨ オアシス21 ＆ MIRAI TOWER（テレビ塔）</strong>
+            栄エリアのシンボルだわ！夜のライトアップ「水の宇宙船」は写真映え抜群で、夜のお散歩にでらおすすめ。<a href="https://www.sakaepark.co.jp/" target="_blank">[詳細]</a>
+        </div>
+        <div class="tip-item">
+            <strong>🌿 ノリタケの森 ＆ イオンモールNagoya Noritake Garden</strong>
+            名駅からすぐ！赤レンガの建物と緑が綺麗で、隣のイオンにある巨大な本棚はSNSで大人気なんだわ。<a href="https://www.noritake.co.jp/mori/" target="_blank">[詳細]</a>
+        </div>
+        <div class="tip-item">
+            <strong>🐬 名古屋港水族館</strong>
+            日本最大級のプールでのシャチやイルカのショーが圧巻だわ！クラゲのコーナーも癒やされるでね。<a href="https://nagoyaaqua.jp/" target="_blank">[詳細]</a>
+        </div>
+        <div class="tip-item">
+            <strong>⛩️ 熱田神宮（あつたじんぐう）</strong>
+            緑豊かで空気が澄んでるパワースポット。参拝後は近くの「あつた蓬莱軒」でひつまぶしを食べるのが鉄板ルートだわ。<a href="https://www.atsutajingu.or.jp/" target="_blank">[詳細]</a>
+        </div>
+        <div class="tip-item">
+            <strong>🛍️ 大須商店街（おおすしょうてんがい）</strong>
+            食べ歩きの聖地だわ！スイーツから古着屋、家電まで何でも揃うカオスで楽しい街。大須観音にもお参りしてちょうだい。
+        </div>
+        <div class="tip-item">
+            <strong>🐨 東山動植物園</strong>
+            イケメンゴリラの「シャバーニ」が有名だでね。植物園エリアは静かで綺麗だし、秋の紅葉ライトアップはでらロマンチックだわ。
         </div>
     </div>
 </div>
 
 <div class="section" id="sec-food">
     <div class="card">
-        <div class="card-title">🍽️ なごやめし・会食リストでございます <a href="https://www.nagoya-info.jp/gourmet/" target="_blank" style="font-size:0.7rem; color:var(--gold); margin-left:auto; font-weight:normal; text-decoration:none;">[名古屋観光公式]</a></div>
+        <div class="card-title">🍽️ 絶対食べたい！なごやめしリスト <a href="https://www.nagoya-info.jp/gourmet/" target="_blank" style="font-size:0.7rem; color:var(--gold); margin-left:auto; font-weight:normal; text-decoration:none;">[名古屋観光公式]</a></div>
         <div class="tip-item">
             <strong>🍱 ひつまぶし</strong> <a href="https://ja.wikipedia.org/wiki/%E3%81%B2%E3%81%A4%E3%81%BE%E3%81%B6%E3%81%97" target="_blank">[詳細]</a><br>
-            接待やご褒美ランチの定番ですわ。そのまま、薬味、お茶漬けと3度美味しくていかんですわ。<a href="https://www.houraiken.com/" target="_blank">あつた蓬莱軒</a>や<a href="https://www.maruya-honten.com/" target="_blank">まるや本店</a>、<a href="https://hitsumabushi.co.jp/" target="_blank">備長</a>がでら有名でございます。
+            ご褒美ランチの王様だわ。そのまま、薬味、お茶漬けの3度美味しいわ。<a href="https://www.houraiken.com/" target="_blank">あつた蓬莱軒</a>や<a href="https://www.maruya-honten.com/" target="_blank">まるや本店</a>、<a href="https://hitsumabushi.co.jp/" target="_blank">備長</a>が有名だでね。
         </div>
         <div class="tip-item">
             <strong>🍗 手羽先・名古屋コーチン</strong> <a href="https://ja.wikipedia.org/wiki/%E6%89%8B%E7%BE%BD%E5%85%88%E5%94%90%E6%8F%9A%E3%81%92" target="_blank">[詳細]</a><br>
-            お仕事終わりの一杯にでら最高でございます。スパイシーな<a href="https://www.yamachan.co.jp/" target="_blank">世界の山ちゃん</a>か、甘辛い<a href="https://furaibou.com/" target="_blank">風来坊</a>か好みが分かれますわね。地鶏の<a href="https://nagoya-cochin.jp/" target="_blank">名古屋コーチン</a>を使った焼き鳥もいっぺん召し上がってみてちょうだい。
+            スパイシーな<a href="https://www.yamachan.co.jp/" target="_blank">世界の山ちゃん</a>と、甘辛ダレの<a href="https://furaibou.com/" target="_blank">風来坊</a>。どっち派かよく議論になるわ。
         </div>
         <div class="tip-item">
             <strong>🥢 みそかつ</strong> <a href="https://ja.wikipedia.org/wiki/%E5%91%B3%E5%99%8C%E3%82%AB%E3%83%84" target="_blank">[詳細]</a><br>
-            ガッツリ召し上がりたい日のランチにぴったりですわ。濃厚な八丁味噌ダレがたまらんですでね。<a href="https://www.yabaton.com/" target="_blank">矢場とん</a>が定番ですが、その辺の定食屋の味噌カツも侮れませんでよ。
+            濃厚な八丁味噌ダレがサクサクのカツに染みて最高だわ。<a href="https://www.yabaton.com/" target="_blank">矢場とん</a>が定番だけど、街の定食屋さんも侮れんでね。
         </div>
         <div class="tip-item">
-            <strong>🍜 台湾ラーメン・きしめん</strong> <a href="https://ja.wikipedia.org/wiki/%E5%8F%B0%E6%B9%BE%E3%83%A9%E3%83%BC%E3%83%A1%E3%83%B3" target="_blank">[詳細]</a><br>
-            飲んだ後のシメやサク飯によろしいですわ。<a href="https://www.misen.ne.jp/" target="_blank">味仙</a>の台湾ラーメンはちんちんに辛いですで、お気をつけちょうだいね。新幹線ホームのきしめん（<a href="https://www.jrt-food-service.co.jp/store/" target="_blank">住よし</a>）は出張族の定番でございますね。
+            <strong>🍜 台湾ラーメン・台湾まぜそば</strong> <a href="https://ja.wikipedia.org/wiki/%E5%8F%B0%E6%B9%BE%E3%83%A9%E3%83%BC%E3%83%A1%E3%83%B3" target="_blank">[詳細]</a><br>
+            名古屋発祥の激辛ラーメン。<a href="https://www.misen.ne.jp/" target="_blank">味仙</a>の台湾ラーメンはむせるほど辛いけどクセになるわ。
         </div>
         <div class="tip-item">
-            <strong>☕ モーニング（喫茶店）</strong> <a href="https://ja.wikipedia.org/wiki/%E3%83%A2%E3%83%BC%E3%83%8B%E3%83%B3%E3%82%B0%E3%82%B5%E3%83%BC%E3%83%93%E3%82%B9" target="_blank">[詳細]</a><br>
-            コーヒー代だけでトーストやらゆで卵がついてくる文化でございます。<a href="https://www.komeda.co.jp/" target="_blank">コメダ珈琲店</a>のほか、伏見や名駅周辺の純喫茶で朝のメールチェックをされると捗りますわよ。
+            <strong>☕ モーニング ＆ 小倉トースト</strong> <a href="https://ja.wikipedia.org/wiki/%E3%83%A2%E3%83%BC%E3%83%8B%E3%83%B3%E3%82%B0%E3%82%B5%E3%83%BC%E3%83%93%E3%82%B9" target="_blank">[詳細]</a><br>
+            コーヒー1杯でトーストがついてくる素敵な文化。<a href="https://www.komeda.co.jp/" target="_blank">コメダ珈琲店</a>のシロノワールや小倉トーストは絶対食べてちょうだい。
+        </div>
+        <div class="tip-item">
+            <strong>🍝 あんかけスパゲッティ</strong><br>
+            極太麺にピリッと胡椒が効いたトマトベースの餡を絡めるB級グルメ。「ヨコイ」や「チャオ」が定番だわ。
+        </div>
+        <div class="tip-item">
+            <strong>🍜 きしめん</strong><br>
+            平べったいツルツルの麺が特徴だわ。新幹線ホームにある「住よし」は出張族のオアシスだでね。
+        </div>
+        <div class="tip-item">
+            <strong>🍤 天むす（てんむす）</strong><br>
+            小ぶりのおにぎりに、エビの天ぷらが入ってるわ。「千寿」や「地雷也」が有名。差し入れにピッタリだでね。
+        </div>
+        <div class="tip-item">
+            <strong>🍢 どて煮 ＆ 味噌おでん</strong><br>
+            牛すじや豚モツを八丁味噌でドロドロになるまで煮込んだものだわ。居酒屋に行ったらとりあえず頼む一品。
+        </div>
+        <div class="tip-item">
+            <strong>🍡 なごやスイーツ（ういろう・ぴよりん）</strong><br>
+            もっちりした「青柳ういろう」は定番のおやつ。最近は可愛いひよこ型のスイーツ「ぴよりん」も大行列だでね！
         </div>
     </div>
 </div>
 
 <div class="section" id="sec-diary">
     <div class="card">
-        <div class="card-title">🤖 AI アシスタントですわ（1日の振り返り）</div>
-        <div style="font-size:0.8rem; color:var(--text-muted); margin-bottom:12px;">今日の業務や日常の出来事をご入力してちょうだい。AIが論理的かつ労いのフィードバックをいたしますでね。</div>
+        <div class="card-title">🤖 AI アシスタント（1日の振り返り）</div>
+        <div style="font-size:0.8rem; color:var(--text-muted); margin-bottom:12px;">今日の出来事を入力してみてね。AIが優しく丁寧な名古屋弁で、労いのフィードバックをするわ💐</div>
         
         <div style="margin-bottom:12px;">
             <div style="font-size:0.85rem; font-weight:600; color:var(--navy); margin-bottom:6px;">✨ よかったこと（成果・進捗・嬉しかったこと）</div>
             <textarea class="diary-textarea" id="ai-good-input" placeholder="例：
-・会議でええ提案ができて、プロジェクトが前進いたしましたわ
-・夕食にでらうみゃあ鶏料理を作れましたでね"></textarea>
+・プレゼンがうまくいって、プロジェクトが前進したわ！
+・夕食に美味しいご飯が作れて大満足だわ"></textarea>
         </div>
         
         <div style="margin-bottom:12px;">
-            <div style="font-size:0.85rem; font-weight:600; color:var(--miso); margin-bottom:6px;">課題（難航したこと・ストレス・改善点）</div>
+            <div style="font-size:0.85rem; font-weight:600; color:var(--miso); margin-bottom:6px;">課題（もやもやしたこと・ストレス・改善点）</div>
             <textarea class="diary-textarea" id="ai-bad-input" placeholder="例：
-・ベンダーとの要件調整が難航しておりますわ
-・帰りの電車が遅延してでらえらかったですわ"></textarea>
+・ベンダーとの調整がなかなか進まなくて焦ってるんだわ
+・帰りの電車が遅延してすごく疲れちゃった..."></textarea>
         </div>
         
-        <button class="btn-primary" id="ai-submit-btn" onclick="submitToAI()">送信してフィードバックをもらいますでね</button>
+        <button class="btn-primary" id="ai-submit-btn" onclick="submitToAI()">送信してAIからお返事をもらう💌</button>
         
         <div id="ai-response-area" class="ai-response">
-            <div style="font-size:0.85rem; font-weight:700; color:#16a34a; margin-bottom:6px;">🤖 AIからのフィードバックでございます</div>
+            <div style="font-size:0.85rem; font-weight:700; color:var(--navy); margin-bottom:6px;">🤖 AIからのお返事だわ</div>
             <div id="ai-response-text" style="font-size:0.85rem; line-height:1.7;"></div>
         </div>
     </div>
 
     <div class="card">
-        <div class="card-title">✅ 今週のタスク・目標リストですわ</div>
+        <div class="card-title">✅ 今週のタスク・目標リストだわ</div>
         <div id="task-items">
             <div class="calc-row" style="border-bottom:1px dashed var(--border); padding-bottom:8px;">
-                <input type="checkbox" id="t1" style="width:18px;height:18px;"><label for="t1" style="font-size:0.85rem; flex:1;">未読メールの整理と返信ですわ</label>
+                <input type="checkbox" id="t1" style="width:18px;height:18px;"><label for="t1" style="font-size:0.85rem; flex:1;">未読メールの整理と返信をする</label>
             </div>
             <div class="calc-row" style="border-bottom:1px dashed var(--border); padding-bottom:8px;">
-                <input type="checkbox" id="t2" style="width:18px;height:18px;"><label for="t2" style="font-size:0.85rem; flex:1;">各部門との調整事項の整理でございます</label>
+                <input type="checkbox" id="t2" style="width:18px;height:18px;"><label for="t2" style="font-size:0.85rem; flex:1;">各部門との調整事項をまとめる</label>
             </div>
             <div class="calc-row" style="border-bottom:1px dashed var(--border); padding-bottom:8px;">
-                <input type="checkbox" id="t3" style="width:18px;height:18px;"><label for="t3" style="font-size:0.85rem; flex:1;">経費・交通費の精算処理をいたします</label>
+                <input type="checkbox" id="t3" style="width:18px;height:18px;"><label for="t3" style="font-size:0.85rem; flex:1;">経費・交通費の精算処理をする</label>
             </div>
             <div class="calc-row" style="border-bottom:1px dashed var(--border); padding-bottom:8px;">
-                <input type="checkbox" id="t4" style="width:18px;height:18px;"><label for="t4" style="font-size:0.85rem; flex:1;">IT全般統制（J-SOX）関連の資料確認ですわ</label>
+                <input type="checkbox" id="t4" style="width:18px;height:18px;"><label for="t4" style="font-size:0.85rem; flex:1;">IT全般統制（J-SOX）関連の資料確認だわ</label>
             </div>
         </div>
     </div>
@@ -365,7 +415,7 @@
 
 <div class="section" id="sec-calc">
     <div class="card">
-        <div class="card-title">🍻 割り勘計算ですわ</div>
+        <div class="card-title">🍻 割り勘の計算するでね</div>
         <div class="calc-row">
             <label style="width:70px; font-size:0.85rem;">合計金額</label>
             <input type="number" id="split-total" class="calc-input" placeholder="例: 15000" oninput="calcSplit()">
@@ -377,12 +427,12 @@
             <span style="font-size:0.85rem;">人</span>
         </div>
         <div style="text-align:right; font-size:1.1rem; font-weight:700; color:var(--navy); margin-top:12px;">
-            1人あたり：<span id="split-result">0</span> 円ですわ
+            1人あたり：<span id="split-result">0</span> 円だわ
         </div>
     </div>
 
     <div class="card">
-        <div class="card-title">🧾 消費税・税込計算でございます <a href="https://www.nta.go.jp/taxes/shiraberu/taxanswer/shohi/6303.htm" target="_blank" style="font-size:0.7rem; color:var(--gold); margin-left:auto; font-weight:normal; text-decoration:none;">[国税庁WEB]</a></div>
+        <div class="card-title">🧾 消費税・税込の計算だわ <a href="https://www.nta.go.jp/taxes/shiraberu/taxanswer/shohi/6303.htm" target="_blank" style="font-size:0.7rem; color:var(--gold); margin-left:auto; font-weight:normal; text-decoration:none;">[国税庁WEB]</a></div>
         <div class="calc-row">
             <label style="width:70px; font-size:0.85rem;">税抜金額</label>
             <input type="number" id="tax-base" class="calc-input" placeholder="0" oninput="calcTax()">
@@ -392,130 +442,154 @@
             <label style="font-size:0.8rem;"><input type="radio" name="tax-rate" value="1.08" onchange="calcTax()"> 8% (軽減)</label>
         </div>
         <div style="text-align:right; font-size:1.1rem; font-weight:700; color:var(--miso);">
-            税込：<span id="tax-result">0</span> 円ですわ
+            税込：<span id="tax-result">0</span> 円だわ
         </div>
     </div>
 </div>
 
 <div class="section" id="sec-phrase">
     <div class="card">
-        <div class="card-title">🗣️ アイスブレイク用 名古屋弁でございます <a href="https://ja.wikipedia.org/wiki/%E5%90%8D%E5%8F%A4%E5%B1%8B%E5%BC%81" target="_blank" style="font-size:0.7rem; color:var(--gold); margin-left:auto; font-weight:normal; text-decoration:none;">[名古屋弁辞典]</a></div>
-        <div style="font-size:0.8rem; color:var(--text-muted); margin-bottom:16px;">お取引先との雑談や、お食事の席での話題作りにでら使える方言集ですわ。てんこ盛りでございますよ。</div>
+        <div class="card-title">🗣️ リアルな名古屋弁（アイスブレイク用） <a href="https://ja.wikipedia.org/wiki/%E5%90%8D%E5%8F%A4%E5%B1%8B%E5%BC%81" target="_blank" style="font-size:0.7rem; color:var(--gold); margin-left:auto; font-weight:normal; text-decoration:none;">[名古屋弁辞典]</a></div>
+        <div style="font-size:0.8rem; color:var(--text-muted); margin-bottom:16px;">実は名古屋の人って、コテコテな「みゃあみゃあ」はもうあまり言わないんだわ。ネイティブが自然に使う方言を集めたでね。</div>
         
         <div class="tip-item">
             <strong>やっとかめ</strong><br>
-            意味：「お久しぶりです」。漢字で「八十日目」と書き、久しぶりにお会いしたお相手への挨拶として使われますでね。
+            意味：「お久しぶりです」。ご年配の方やビジネスシーンの挨拶で「やっとかめですね〜」って上品に使うわ。
         </div>
         <div class="tip-item">
             <strong>でら / どえりゃー</strong><br>
-            意味：「とても」「すごく」。「でらうみゃあ（すごく美味しい）」「でら安い」など汎用性が高いお言葉ですわ。
+            意味：「とても」「すごく」。若い子でも普通に「これ、でら可愛い！」って使う必須ワードだわ。
+        </div>
+        <div class="tip-item">
+            <strong>だもんで</strong><br>
+            意味：「だから」「ですので」。接続詞として息をするように使うわ。「雨降っとる、だもんで遅れたわ」みたいにね。
         </div>
         <div class="tip-item">
             <strong>お値打ち（おねうち）</strong><br>
-            意味：「値段以上にお得」「コスパが良い」。名古屋のビジネスや日常ででら好まれる概念でございます。
+            意味：「値段以上にお得」「コスパが良い」。名古屋の日常ででら好まれる概念だわ。
+        </div>
+        <div class="tip-item">
+            <strong>あらすか</strong><br>
+            意味：「あるわけないでしょ」という強めの否定。「そんなこと、あらすか！」とツッコミで使うわ。
         </div>
         <div class="tip-item">
             <strong>放課（ほうか）</strong><br>
-            意味：「休み時間」。学校の授業の合間の休憩時間を指しますわ（他県では授業終了後を指すことが多いですでね）。
+            意味：「休み時間」。学校の授業の合間の休憩時間を指すわ（他県では授業終了後を指すことが多いでね）。
         </div>
         <div class="tip-item">
             <strong>ケッタ / ケッタマシーン</strong><br>
-            意味：「自転車」。ペダルを「蹴ったぐる」ことから来とるそうですわ。
+            意味：「自転車」。学生時代はみんな「ケッタで集合ね！」って言ってたわ。
         </div>
         <div class="tip-item">
             <strong>机をつる</strong><br>
-            意味：「机を運ぶ・動かす」。大掃除や席替えの時に「机つってちょう」って言いますわ。
+            意味：「机を運ぶ・動かす」。大掃除や席替えの時に「机つってちょうだい」って言うわ。
         </div>
         <div class="tip-item">
             <strong>お金をこわす</strong><br>
-            意味：「両替する（お札を小銭にする）」。レジで「1万円こわしてちょうだい」などと使いますでよ。
+            意味：「両替する（お札を小銭にする）」。レジで「1万円こわしてちょうだい」って普通に言うわ。
         </div>
         <div class="tip-item">
             <strong>鍵をかう</strong><br>
-            意味：「鍵をかける」。戸締まりされる時に「ちゃんと鍵かった？」って聞かれますわね。
+            意味：「鍵をかける」。戸締まりする時に「ちゃんと鍵かった？」って確認するでね。
         </div>
         <div class="tip-item">
             <strong>えらい</strong><br>
-            意味：「疲れた」「しんどい」。「今日はでらえらいわ〜」って仕事終わりに言いますでね。
+            意味：「疲れた」「しんどい」。「今日は歩きすぎてでらえらいわ〜」って仕事終わりに言うでね。
         </div>
         <div class="tip-item">
             <strong>ちんちん / ちんちこちん</strong><br>
-            意味：「とても熱い状態」。お茶やヤカンが沸騰して熱い時に「お茶がちんちんだでお気をつけちょうだい」って言いますわ。
+            意味：「とても熱い状態」。やかんやお茶が沸騰してる時に「お茶がちんちんだで気をつけてね」って言うわ。
         </div>
         <div class="tip-item">
             <strong>トキントキン</strong><br>
-            意味：「鉛筆などの先が鋭く尖っている状態」。芯がピンピンな状態でございます。
+            意味：「鉛筆などの先が鋭く尖っている状態」。「この鉛筆、トキントキンだね」って使うわ。
+        </div>
+        <div class="tip-item">
+            <strong>ほかっといて / ほかる</strong><br>
+            意味：「放っておいて」「捨てる」。「そのゴミ、ほかっといて（捨てておいて）」って言うわ。
+        </div>
+        <div class="tip-item">
+            <strong>わや</strong><br>
+            意味：「めちゃくちゃ」「台無し」。「雨で髪の毛わやだわ〜」って嘆く時に使うでね。
+        </div>
+        <div class="tip-item">
+            <strong>まわし</strong><br>
+            意味：「準備」「支度」のこと。「お出かけのまわし（準備）しやぁよ」って使うわ。
         </div>
         <div class="tip-item">
             <strong>まぁあかん</strong><br>
-            意味：「もうダメだ」「これ以上は無理」。お仕事が行き詰まった時に思わず口から出ますわ。
+            意味：「もうダメだ」「これ以上は無理」。お仕事が行き詰まった時に思わず口から出るわ。
         </div>
     </div>
 </div>
 
 <div class="section" id="sec-transport">
     <div class="card">
-        <div class="card-title">🚇 交通手段のポイントでございます <a href="https://www.kotsu.city.nagoya.jp/jp/pc/" target="_blank" style="font-size:0.7rem; color:var(--gold); margin-left:auto; font-weight:normal; text-decoration:none;">[名古屋市交通局]</a></div>
+        <div class="card-title">🚇 交通手段のポイントだわ <a href="https://www.kotsu.city.nagoya.jp/jp/pc/" target="_blank" style="font-size:0.7rem; color:var(--gold); margin-left:auto; font-weight:normal; text-decoration:none;">[名古屋市交通局]</a></div>
         <div class="tip-item">
             <strong>🚇 地下鉄（東山線・名城線・桜通線・鶴舞線）</strong> <a href="https://www.kotsu.city.nagoya.jp/jp/pc/subway/routemap.html" target="_blank">[路線図]</a><br>
-            ビジネスエリア（名駅、伏見、栄、丸の内など）の移動は地下鉄が基本でございます。交通系ICカード（マナカ、Suica等）も利用可能ですわ。市バスと地下鉄の<a href="https://www.kotsu.city.nagoya.jp/jp/pc/TICKET/" target="_blank">1日乗車券</a>もでら便利ですでね。
+            ビジネスエリア（名駅、伏見、栄、丸の内など）の移動は地下鉄が基本だわ。交通系ICカードも利用可能だでね。市バスと地下鉄の<a href="https://www.kotsu.city.nagoya.jp/jp/pc/TICKET/" target="_blank">1日乗車券</a>もでら便利だわ。
         </div>
         <div class="tip-item">
             <strong>🚆 名鉄（名古屋鉄道） / 近鉄</strong> <a href="https://www.meitetsu.co.jp/" target="_blank">[名鉄WEB]</a> <a href="https://www.kintetsu.co.jp/" target="_blank">[近鉄WEB]</a><br>
-            愛知県内の郊外（豊田市、岡崎市など）や岐阜方面は名鉄、三重（四日市など）方面は近鉄が便利ですわ。名鉄名古屋駅は行き先によって並ぶ位置が違いますで、初めての時はお気をつけちょうだいね。
+            郊外（豊田市、岡崎市など）や岐阜方面は名鉄、三重（四日市など）方面は近鉄が便利だわ。名鉄名古屋駅は行き先によって並ぶ位置が違うで、初めての時は気をつけてちょうだいね。
         </div>
         <div class="tip-item">
             <strong>🚕 タクシー利用</strong> <a href="https://go.goinc.jp/" target="_blank">[GOアプリ]</a><br>
-            名駅や栄周辺は流しのタクシーも多いですが、雨の日などは配車アプリ（GO、DiDi等）を活用されるのが確実ですわ。
+            名駅や栄周辺は流しのタクシーも多いけど、雨の日などは配車アプリを活用するのが確実だわ。
         </div>
     </div>
 </div>
 
 <div class="section" id="sec-tips">
     <div class="card">
-        <div class="card-title">📋 名古屋ビジネス・ローカルルールてんこ盛りでございます</div>
+        <div class="card-title">📋 知っておきたい！名古屋のローカル常識</div>
         <div class="tip-item">
             <strong>地下街（名駅ダンジョン）の活用</strong> <a href="https://www.nagoya-info.jp/useful/" target="_blank">[地下街情報]</a><br>
-            名古屋駅周辺（エスカ、ユニモール等）や栄（サカエチカ等）は地下街がでら発達しておりますで、夏場や雨天時の移動に必須ですわ。ただし構造が複雑ですで、目的地に近い出口番号を事前に把握しておくのが吉でございます。
-        </div>
-        <div class="tip-item">
-            <strong>エスカレーターの乗り方</strong> <a href="https://www.city.nagoya.jp/sportsshimin/page/0000144933.html" target="_blank">[条例について]</a><br>
-            関東は左立ち、関西は右立ちですが、名古屋は「左立ち」が多いですわ。ただし今は条例で「立ち止まって乗る（歩かない）」ことが推奨されておりますで、お気をつけちょうだいね。
-        </div>
-        <div class="tip-item">
-            <strong>手土産（お土産）の選び方</strong> <a href="https://www.jr-takashimaya.co.jp/" target="_blank">[JR高島屋]</a><br>
-            JR名古屋高島屋やキヨスクで揃いますわ。「<a href="https://www.aoyagiuirou.co.jp/" target="_blank">青柳ういろう</a>」「<a href="https://www.bankaku.co.jp/" target="_blank">ゆかり</a>」「カエルまんじゅう」「小倉トーストラングドシャ」などがビジネス用途でも無難でお喜びいただけますでね。
+            名古屋駅周辺や栄は地下街が網の目のように発達してるわ。夏は涼しく冬は暖かいから必須ルートだけど、迷子になりやすいで「〇〇番出口」をちゃんと調べておくのが吉だわ。
         </div>
         <div class="tip-item">
             <strong>商談は喫茶店ですることが多いわ</strong> <a href="https://www.komeda.co.jp/" target="_blank">[コメダ珈琲店]</a><br>
-            名古屋のビジネスパーソンは、ちょっとしたお打ち合わせをコメダ珈琲店などの喫茶店でされることがでら多いんですわ。「ちょっとお茶でもしよまい」は立派な商談の合図でございます。
+            名古屋のビジネスパーソンは、会議室より近くの喫茶店で打ち合わせをすることが多いわ。「ちょっとお茶しよまい」は立派なビジネスのお誘いだでね。
         </div>
         <div class="tip-item">
-            <strong>超車社会・名古屋走りに注意</strong> <a href="https://ja.wikipedia.org/wiki/%E5%90%8D%E5%8F%A4%E5%B1%8B%E8%B5%B0%E3%82%8A" target="_blank">[名古屋走りとは]</a><br>
-            トヨタのお膝元ですで超車社会でございます。ウインカー出さずに車線変更したり、黄色信号で突っ込んでくる「名古屋走り」がおられますで、営業車に乗られる時や歩行者として横断歩道をお渡りになる時はお気をつけちょうだいね。
+            <strong>超車社会・「名古屋走り」に要注意</strong> <a href="https://ja.wikipedia.org/wiki/%E5%90%8D%E5%8F%A4%E5%B1%8B%E8%B5%B0%E3%82%8A" target="_blank">[名古屋走りとは]</a><br>
+            トヨタのお膝元だで一家に一台どころか超車社会だわ。黄色信号で突っ込んでくる強引な運転をする人が一部いるで、運転も歩行中も本当に気をつけてちょうだいね。
+        </div>
+        <div class="tip-item">
+            <strong>エスカレーターは「左立ち」が多いわ</strong> <a href="https://www.city.nagoya.jp/sportsshimin/page/0000144933.html" target="_blank">[条例について]</a><br>
+            関東は左、関西は右だけど、名古屋は「左」に立つ人が多いわ。でも今は条例で「立ち止まって乗る（歩かない）」ことが決められてるから、二列で止まって乗るのが正解だでね。
+        </div>
+        <div class="tip-item">
+            <strong>手土産（お土産）の選び方</strong> <a href="https://www.jr-takashimaya.co.jp/" target="_blank">[JR高島屋]</a><br>
+            JR名古屋高島屋やキヨスクで揃うわ。「<a href="https://www.aoyagiuirou.co.jp/" target="_blank">青柳ういろう</a>」や「<a href="https://www.bankaku.co.jp/" target="_blank">ゆかり</a>」、最近はひよこ型のスイーツ「ぴよりん」も大人気だわ。
         </div>
         <div class="tip-item">
             <strong>「行けたら行く」は絶対来ないわ</strong><br>
-            お誘いした時の「行けたら行くわ〜」は、名古屋（というか東海地方）ではほぼ100%「行かない（行けない）」の丁寧なお断り文句ですわ。ご期待してお待ちになられたらいかんですでね。
+            お誘いした時の「行けたら行くわ〜」は、愛知・東海地方ではほぼ100%「行かない（行けない）」の丁寧なお断り文句だわ。角を立てないための優しさだで、期待して待っとったらいかんでね。
         </div>
         <div class="tip-item">
-            <strong>何でもかんでも赤味噌（八丁味噌）だて</strong> <a href="https://ja.wikipedia.org/wiki/%E5%85%AB%E4%B8%81%E5%91%B3%E5%99%8C" target="_blank">[八丁味噌]</a><br>
-            お味噌汁（赤だし）はもちろん、トンカツにも、おでんにも、うどんにも赤味噌がベースですわ。コンビニのレジ横のおでんにも「味噌だれ」がついてくるのが名古屋の常識でございます。
+            <strong>何でもかんでも赤味噌（八丁味噌）だわ</strong> <a href="https://ja.wikipedia.org/wiki/%E5%85%AB%E4%B8%81%E5%91%B3%E5%99%8C" target="_blank">[八丁味噌]</a><br>
+            お味噌汁はもちろん、トンカツにもおでんにも赤味噌がベースだわ。コンビニのレジ横のおでんを買うと、カラシと一緒に「味噌ダレ」が当たり前についてくるわよ。
         </div>
         <div class="tip-item">
-            <strong>スガキヤは愛知県民のソウルフードですわ</strong> <a href="https://www.sugakico.co.jp/" target="_blank">[スガキヤWEB]</a><br>
-            和風とんこつラーメンとソフトクリームを一緒に召し上がるのが名古屋スタイルでございます。先割れスプーン（ラーメンフォーク）で召し上がるのが本流ですわ。
+            <strong>スガキヤは愛知県民のソウルフードだわ</strong> <a href="https://www.sugakico.co.jp/" target="_blank">[スガキヤWEB]</a><br>
+            和風とんこつラーメンとソフトクリームを一緒に食べるのが愛知県民のソウルフードだわ。スプーンとフォークが合体した「ラーメンフォーク」で食べるのが本流！
         </div>
         <div class="tip-item">
-            <strong>結婚式は派手にするのが伝統ですわ</strong> <a href="https://ja.wikipedia.org/wiki/%E8%8F%93%E5%AD%90%E6%92%92%E3%81%8D" target="_blank">[菓子まき]</a><br>
-            最近は減りましたが、名古屋の結婚式はとにかく派手でございます。ご近所の方に向けて屋根からお菓子をばらまく「菓子まき」の風習や、ガラス張りのトラックで嫁入り道具をお運びになったりいたしますわ。
+            <strong>名古屋駅（名駅） vs 栄（さかえ）</strong><br>
+            高層ビルが立ち並ぶビジネス＆最先端エリアが「名駅」。テレビ塔があり、老舗デパートやパルコが並ぶ買い物の中心地が「栄」だわ。
+        </div>
+        <div class="tip-item">
+            <strong>結婚式は派手にするのが伝統だわ</strong> <a href="https://ja.wikipedia.org/wiki/%E8%8F%93%E5%AD%90%E6%92%92%E3%81%8D" target="_blank">[菓子まき]</a><br>
+            昔から名古屋の結婚式はとにかく豪華！ご近所に向けて屋根からお菓子をばらまく「菓子まき」の風習は、今でも結婚式場のイベントとして大盛り上がりするわ。
         </div>
     </div>
 </div>
 
 <footer>
-    <div style="font-weight: 700; margin-bottom: 6px;">Nagoya Daily & Business Guide ですわ</div>
-    <p>日々の業務効率化と充実したライフスタイルのために、でら頑張ろまいね！</p>
+    <div style="font-weight: 700; margin-bottom: 6px;">Nagoya Life & Business Guide</div>
+    <p>日々の業務とプライベートが、でら充実しますように🕊️</p>
 </footer>
 
 <script>
@@ -546,6 +620,7 @@ function switchTab(id) {
 function routeTo(inputId) {
     const dest = document.getElementById(inputId).value.trim();
     if (!dest) { alert('行き先をご入力してちょうだいね'); return; }
+    // 正規のルート検索URLに変更
     window.open('https://www.google.com/maps/dir/?api=1&destination=' + encodeURIComponent(dest), '_blank');
 }
 
@@ -554,26 +629,28 @@ function initMap() {
     const frameEl = document.getElementById('map-frame');
     
     if (!navigator.geolocation) { statusEl.textContent = '❌ このブラウザはGPSに対応しておりませんわ'; return; }
-    statusEl.textContent = '⏳ 現在地を取得しておりますでね...少々お待ちちょうだい';
+    statusEl.textContent = '⏳ 現在地を取得してるでね...ちょっと待っててちょうだい';
     
     navigator.geolocation.getCurrentPosition(
         (pos) => {
             const lat = pos.coords.latitude;
             const lng = pos.coords.longitude;
-            frameEl.src = 'https://maps.google.com/maps?q=' + lat + ',' + lng + '&hl=ja&z=15&output=embed';
-            statusEl.textContent = '✅ 現在地取得に成功いたしました！周辺を表示しておりますわ';
+            // 正規の埋め込み地図URLに変更
+            frameEl.src = 'https://maps.google.co.jp/maps?q=' + lat + ',' + lng + '&z=15&output=embed';
+            statusEl.textContent = '✅ 現在地取得に成功したわ！周辺マップを表示してるでね';
         },
         (err) => {
-            // エラー時は名古屋駅を中心に表示
-            frameEl.src = 'https://maps.google.com/maps?q=名古屋駅&hl=ja&z=15&output=embed';
-            statusEl.textContent = '❌ 位置情報が取得できませんでしたで、名古屋駅周辺を表示いたしますわ';
+            // 正規の埋め込み地図URLに変更
+            frameEl.src = 'https://maps.google.co.jp/maps?q=名古屋駅&output=embed';
+            statusEl.textContent = '❌ 位置情報が取得できなかったで、名古屋駅周辺を表示しておくわね';
         },
         { enableHighAccuracy: true, timeout: 5000 }
     );
 }
 
 function searchNearby(kw) {
-    window.open('https://www.google.com/maps/search/?api=1&query=' + encodeURIComponent(kw), '_blank');
+    // 正規の周辺検索URLに変更
+    window.open('https://www.google.com/maps/search/' + encodeURIComponent(kw), '_blank');
 }
 
 // ===== WEATHER (Nagoya) =====
@@ -584,7 +661,7 @@ async function loadWeather() {
         const d = await r.json();
         
         const wmap = { 0:'☀️',1:'🌤️',2:'⛅',3:'☁️',45:'🌫️',48:'🌫️',51:'🌦️',53:'🌦️',55:'🌧️',61:'🌧️',63:'🌧️',65:'🌧️',71:'🌨️',73:'🌨️',75:'❄️',80:'🌦️',81:'🌧️',82:'⛈️',95:'⛈️',96:'⛈️',99:'⛈️' };
-        const wdesc = { 0:'快晴ですわ',1:'晴れでございます',2:'一部曇りですわ',3:'曇りでございますね',45:'霧ですわ',48:'霧でございます',51:'小雨ですわ',53:'雨でございます',55:'でら強い雨ですわ',61:'小雨ですわ',63:'雨でございます',65:'でら強い雨ですわ',71:'小雪ですわ',73:'雪でございます',75:'大雪ですわ',80:'にわか雨でございます',81:'雨ですわ',82:'激しい雨ですわ',95:'雷雨でございます',96:'雷雨ですわ',99:'激しい雷雨でございます' };
+        const wdesc = { 0:'快晴だわ',1:'晴れだわ',2:'一部曇りだね',3:'曇りだわ',45:'霧だわ',48:'霧だね',51:'小雨だわ',53:'雨だわ',55:'でら強い雨だで気をつけて',61:'小雨だわ',63:'雨だわ',65:'でら強い雨だわ',71:'小雪だね',73:'雪だわ',75:'大雪だわ',80:'にわか雨だわ',81:'雨だわ',82:'激しい雨だわ',95:'雷雨だわ',96:'雷雨だわ',99:'激しい雷雨だで気をつけてね' };
         
         const cur = d.current;
         const code = cur.weathercode;
@@ -597,11 +674,11 @@ async function loadWeather() {
                 <div>
                     <div style="font-size:2rem; font-weight:300; color:var(--navy);">${Math.round(cur.temperature_2m)}°C</div>
                     <div style="font-size:0.85rem; color:var(--text-muted);">${desc} ・ 湿度 ${cur.relative_humidity_2m}%</div>
-                    <div style="font-size:0.75rem; color:var(--text-muted); margin-top:4px;">今日の最高 ${Math.round(d.daily.temperature_2m_max[0])}° / 最低 ${Math.round(d.daily.temperature_2m_min[0])}°ですわ</div>
+                    <div style="font-size:0.75rem; color:var(--text-muted); margin-top:4px;">今日の最高 ${Math.round(d.daily.temperature_2m_max[0])}° / 最低 ${Math.round(d.daily.temperature_2m_min[0])}°だわ</div>
                 </div>
             </div>`;
     } catch(e) {
-        document.getElementById('weather-content').innerHTML = `<div style="text-align:center; color:var(--text-muted); font-size:0.85rem;">天気情報を取得できませんでしたわ<br><a href="https://weather.yahoo.co.jp/weather/23/5110.html" target="_blank" style="color:var(--navy);">▶ Yahoo!天気で確認してちょうだいね</a></div>`;
+        document.getElementById('weather-content').innerHTML = `<div style="text-align:center; color:var(--text-muted); font-size:0.85rem;">天気情報を取得できなかったわ💦<br><a href="https://weather.yahoo.co.jp/weather/23/5110.html" target="_blank" style="color:var(--navy);">▶ Yahoo!天気で確認してちょうだいね</a></div>`;
     }
 }
 loadWeather();
@@ -629,11 +706,11 @@ async function submitToAI() {
     const resText = document.getElementById('ai-response-text');
 
     if (!good && !bad) {
-        alert('よかったこと、または課題をご入力してちょうだいませ！');
+        alert('よかったこと、またはもやもやしたことを入力してちょうだいね！');
         return;
     }
 
-    btn.textContent = '⏳ AIが分析しておりますでね...';
+    btn.textContent = '⏳ AIが一生懸命考えてるでね...';
     btn.disabled = true;
     resArea.style.display = 'none';
 
@@ -643,7 +720,7 @@ async function submitToAI() {
     // GAS URL（既存のものを維持）
     const gasUrl = 'https://script.google.com/macros/s/AKfycbxT2T8HcLaGMSnaKzwR0AbtXu1QD6tZ5e638EHaQwI5zW4nrgTsYTW_QaJFhyoyvg/exec'; 
 
-    const prompt = `あなたは多忙なビジネスマンをサポートする優秀な秘書AIです。以下のユーザーの今日の「業務や日常でよかったこと（成果・喜び）」と「悪かったこと（課題・ストレス）」を分析し、明日への活力となるような労いと論理的なフィードバックを2〜3文程度で返してください。トーンは丁寧で落ち着いた大人の雰囲気にしてください。そして、語尾や表現に必ず「丁寧な名古屋弁（ですわ、でございます、など）」を使ってください。
+    const prompt = `あなたは多忙なビジネスパーソンを優しくサポートする優秀な秘書AIです。以下のユーザーの今日の「よかったこと」と「悪かったこと」を分析し、明日への活力となるような労いと論理的なフィードバックを2〜3文程度で返してください。トーンは丁寧で温かみがあり、語尾や表現に「女性らしく自然で上品な名古屋弁（〜だわ、〜でね、〜てちょうだいね、など）」を使ってください。大げさなエセ名古屋弁は避けてください。
 【今日の日付】${dateString}
 【よかったこと】
 ${good}
@@ -660,10 +737,10 @@ ${bad}`;
         resText.innerHTML = data.message.replace(/\n/g, '<br>');
         resArea.style.display = 'block';
     } catch (error) {
-        resText.innerHTML = '通信エラーが発生いたしましたわ。ネットワーク環境をご確認いただくか、GASのURL設定を見直してちょうだいね。';
+        resText.innerHTML = '通信エラーが起きちゃったみたいだわ。ネットワーク環境を確認するか、GASの設定を見直してみてちょうだいね。';
         resArea.style.display = 'block';
     } finally {
-        btn.textContent = '送信してフィードバックをもらいますでね';
+        btn.textContent = '送信してAIからお返事をもらう💌';
         btn.disabled = false;
     }
 }
