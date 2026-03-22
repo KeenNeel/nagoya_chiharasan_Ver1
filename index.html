@@ -8,28 +8,28 @@
     <style>
         :root {
             /* 変数名はそのままに、女子受けするふんわりピンクベージュ系に変更 */
-            --bg-main: #fffafb;
+            --bg-main: #fdfaf8;
             --surface: #ffffff;
-            --navy: #e69a9e;        /* くすみピンク（メインカラー） */
+            --navy: #ea5514;        /* くすみピンク（メインカラー） */
             --gold: #d4af37;        /* 上品なゴールド */
-            --miso: #a88b7d;        /* 柔らかいミルクティーブラウン */
-            --text-main: #5a4a42;   /* 優しいダークブラウン */
-            --text-muted: #9c8a82;
-            --border: #fce8e9;
-            --shadow: 0 8px 24px rgba(230, 154, 158, 0.15);
+            --miso: #9c5e31;        /* 柔らかいミルクティーブラウン */
+            --text-main: #4a3f35;   /* 優しいダークブラウン */
+            --text-muted: #8f857d;
+            --border: #f5ebe6;
+            --shadow: 0 8px 24px rgba(234, 85, 20, 0.15);
             --radius: 16px;         /* ふんわりした角丸 */
         }
 
         /* ===== DARK MODE ===== */
         body.dark-mode {
-            --bg-main: #2d2628;
-            --surface: #3a3234;
-            --navy: #f0b9bc;
+            --bg-main: #2d2825;
+            --surface: #3a332f;
+            --navy: #ff8552;
             --gold: #ebd588;
-            --miso: #d4c4bc;
-            --text-main: #fdfbfb;
-            --text-muted: #bdaeab;
-            --border: #52474a;
+            --miso: #d4af94;
+            --text-main: #fdfdfd;
+            --text-muted: #b8b2ad;
+            --border: #524a45;
             --shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
         }
 
@@ -45,8 +45,8 @@
 
         /* ===== HEADER ===== */
         header {
-            background: linear-gradient(135deg, #ffe0e5 0%, #f3b5bc 100%);
-            color: #5a4a42;
+            background: linear-gradient(135deg, #ffebd9 0%, #ffc099 100%);
+            color: #4a3f35;
             padding: 24px 20px 20px;
             text-align: center;
             position: relative;
@@ -61,7 +61,7 @@
         }
         .header-sub {
             font-size: 0.8rem;
-            color: #8e7365;
+            color: #8a6c56;
             margin-top: 6px;
             letter-spacing: 0.1em;
         }
@@ -167,6 +167,37 @@
         }
         .btn-primary:active { opacity: 0.8; }
         
+        /* マップ検索用ボタンレイアウト */
+        .map-action-btns {
+            display: flex;
+            gap: 8px;
+            margin-top: 10px;
+        }
+        .btn-sm {
+            flex: 1;
+            padding: 8px 4px;
+            background: transparent;
+            border: 1px solid var(--navy);
+            color: var(--navy);
+            border-radius: 8px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+        .btn-sm:hover {
+            background: var(--navy);
+            color: white;
+        }
+        body.dark-mode .btn-sm {
+            border-color: var(--navy);
+            color: var(--navy);
+        }
+        body.dark-mode .btn-sm:hover {
+            background: var(--navy);
+            color: var(--bg-main);
+        }
+
         .search-input {
             flex: 1; padding: 10px; border: 1px solid var(--border); border-radius: 4px;
             font-size: 0.85rem; background: var(--bg-main); color: var(--text-main); outline: none;
@@ -205,13 +236,13 @@
             border-radius: 8px; font-size: 0.85rem; line-height: 1.6; background: var(--bg-main);
             color: var(--text-main); outline: none; resize: vertical; margin-bottom: 12px;
         }
-        .diary-textarea:focus { border-color: var(--navy); box-shadow: 0 0 0 2px rgba(230,154,158,0.2); }
+        .diary-textarea:focus { border-color: var(--navy); box-shadow: 0 0 0 2px rgba(234,85,20,0.2); }
         
         .ai-response {
-            display: none; margin-top: 16px; padding: 16px; background: #fff0f5; 
-            border: 1px solid #fce8e9; border-radius: 8px; border-left: 4px solid var(--navy);
+            display: none; margin-top: 16px; padding: 16px; background: #fff6f0; 
+            border: 1px solid #f5ebe6; border-radius: 8px; border-left: 4px solid var(--navy);
         }
-        body.dark-mode .ai-response { background: #4a3539; border-color: #52474a; }
+        body.dark-mode .ai-response { background: #4a3a30; border-color: #524a45; }
 
         /* ===== CALCULATOR ===== */
         .calc-row { display: flex; align-items: center; gap: 10px; margin-bottom: 10px; }
@@ -297,26 +328,50 @@
         <div class="tip-item">
             <strong>✨ オアシス21 ＆ MIRAI TOWER（テレビ塔）</strong>
             栄エリアのシンボルだわ！夜のライトアップ「水の宇宙船」は写真映え抜群で、夜のお散歩にでらおすすめ。<a href="https://www.sakaepark.co.jp/" target="_blank">[詳細]</a>
+            <div class="map-action-btns">
+                <button class="btn-sm" onclick="openMapSpot('愛知県 オアシス21')">🗺️ マップで見る</button>
+                <button class="btn-sm" onclick="routeToSpot('愛知県 オアシス21')">🚶‍♀️ 現在地からのルート</button>
+            </div>
         </div>
         <div class="tip-item">
             <strong>🌿 ノリタケの森 ＆ イオンモールNagoya Noritake Garden</strong>
             名駅からすぐ！赤レンガの建物と緑が綺麗で、隣のイオンにある巨大な本棚はSNSで大人気なんだわ。<a href="https://www.noritake.co.jp/mori/" target="_blank">[詳細]</a>
+            <div class="map-action-btns">
+                <button class="btn-sm" onclick="openMapSpot('愛知県 ノリタケの森')">🗺️ マップで見る</button>
+                <button class="btn-sm" onclick="routeToSpot('愛知県 ノリタケの森')">🚶‍♀️ 現在地からのルート</button>
+            </div>
         </div>
         <div class="tip-item">
             <strong>🐬 名古屋港水族館</strong>
             日本最大級のプールでのシャチやイルカのショーが圧巻だわ！クラゲのコーナーも癒やされるでね。<a href="https://nagoyaaqua.jp/" target="_blank">[詳細]</a>
+            <div class="map-action-btns">
+                <button class="btn-sm" onclick="openMapSpot('愛知県 名古屋港水族館')">🗺️ マップで見る</button>
+                <button class="btn-sm" onclick="routeToSpot('愛知県 名古屋港水族館')">🚶‍♀️ 現在地からのルート</button>
+            </div>
         </div>
         <div class="tip-item">
             <strong>⛩️ 熱田神宮（あつたじんぐう）</strong>
             緑豊かで空気が澄んでるパワースポット。参拝後は近くの「あつた蓬莱軒」でひつまぶしを食べるのが鉄板ルートだわ。<a href="https://www.atsutajingu.or.jp/" target="_blank">[詳細]</a>
+            <div class="map-action-btns">
+                <button class="btn-sm" onclick="openMapSpot('愛知県 熱田神宮')">🗺️ マップで見る</button>
+                <button class="btn-sm" onclick="routeToSpot('愛知県 熱田神宮')">🚶‍♀️ 現在地からのルート</button>
+            </div>
         </div>
         <div class="tip-item">
             <strong>🛍️ 大須商店街（おおすしょうてんがい）</strong>
             食べ歩きの聖地だわ！スイーツから古着屋、家電まで何でも揃うカオスで楽しい街。大須観音にもお参りしてちょうだい。
+            <div class="map-action-btns">
+                <button class="btn-sm" onclick="openMapSpot('愛知県 大須商店街')">🗺️ マップで見る</button>
+                <button class="btn-sm" onclick="routeToSpot('愛知県 大須商店街')">🚶‍♀️ 現在地からのルート</button>
+            </div>
         </div>
         <div class="tip-item">
             <strong>🐨 東山動植物園</strong>
             イケメンゴリラの「シャバーニ」が有名だでね。植物園エリアは静かで綺麗だし、秋の紅葉ライトアップはでらロマンチックだわ。
+            <div class="map-action-btns">
+                <button class="btn-sm" onclick="openMapSpot('愛知県 東山動植物園')">🗺️ マップで見る</button>
+                <button class="btn-sm" onclick="routeToSpot('愛知県 東山動植物園')">🚶‍♀️ 現在地からのルート</button>
+            </div>
         </div>
     </div>
 </div>
@@ -324,45 +379,95 @@
 <div class="section" id="sec-food">
     <div class="card">
         <div class="card-title">🍽️ 絶対食べたい！なごやめしリスト <a href="https://www.nagoya-info.jp/gourmet/" target="_blank" style="font-size:0.7rem; color:var(--gold); margin-left:auto; font-weight:normal; text-decoration:none;">[名古屋観光公式]</a></div>
+        
         <div class="tip-item">
             <strong>🍱 ひつまぶし</strong> <a href="https://ja.wikipedia.org/wiki/%E3%81%B2%E3%81%A4%E3%81%BE%E3%81%B6%E3%81%97" target="_blank">[詳細]</a><br>
             ご褒美ランチの王様だわ。そのまま、薬味、お茶漬けの3度美味しいわ。<a href="https://www.houraiken.com/" target="_blank">あつた蓬莱軒</a>や<a href="https://www.maruya-honten.com/" target="_blank">まるや本店</a>、<a href="https://hitsumabushi.co.jp/" target="_blank">備長</a>が有名だでね。
+            <div class="map-action-btns">
+                <button class="btn-sm" onclick="searchFoodMap('ひつまぶし', 'current')">📍 現在地の周辺で探す</button>
+                <button class="btn-sm" onclick="searchFoodMap('ひつまぶし', 'nagoya')">🚉 JR名古屋駅周辺</button>
+            </div>
         </div>
+        
         <div class="tip-item">
             <strong>🍗 手羽先・名古屋コーチン</strong> <a href="https://ja.wikipedia.org/wiki/%E6%89%8B%E7%BE%BD%E5%85%88%E5%94%90%E6%8F%9A%E3%81%92" target="_blank">[詳細]</a><br>
             スパイシーな<a href="https://www.yamachan.co.jp/" target="_blank">世界の山ちゃん</a>と、甘辛ダレの<a href="https://furaibou.com/" target="_blank">風来坊</a>。どっち派かよく議論になるわ。
+            <div class="map-action-btns">
+                <button class="btn-sm" onclick="searchFoodMap('手羽先', 'current')">📍 現在地の周辺で探す</button>
+                <button class="btn-sm" onclick="searchFoodMap('手羽先', 'nagoya')">🚉 JR名古屋駅周辺</button>
+            </div>
         </div>
+        
         <div class="tip-item">
             <strong>🥢 みそかつ</strong> <a href="https://ja.wikipedia.org/wiki/%E5%91%B3%E5%99%8C%E3%82%AB%E3%83%84" target="_blank">[詳細]</a><br>
             濃厚な八丁味噌ダレがサクサクのカツに染みて最高だわ。<a href="https://www.yabaton.com/" target="_blank">矢場とん</a>が定番だけど、街の定食屋さんも侮れんでね。
+            <div class="map-action-btns">
+                <button class="btn-sm" onclick="searchFoodMap('みそかつ', 'current')">📍 現在地の周辺で探す</button>
+                <button class="btn-sm" onclick="searchFoodMap('みそかつ', 'nagoya')">🚉 JR名古屋駅周辺</button>
+            </div>
         </div>
+        
         <div class="tip-item">
             <strong>🍜 台湾ラーメン・台湾まぜそば</strong> <a href="https://ja.wikipedia.org/wiki/%E5%8F%B0%E6%B9%BE%E3%83%A9%E3%83%BC%E3%83%A1%E3%83%B3" target="_blank">[詳細]</a><br>
             名古屋発祥の激辛ラーメン。<a href="https://www.misen.ne.jp/" target="_blank">味仙</a>の台湾ラーメンはむせるほど辛いけどクセになるわ。
+            <div class="map-action-btns">
+                <button class="btn-sm" onclick="searchFoodMap('台湾ラーメン', 'current')">📍 現在地の周辺で探す</button>
+                <button class="btn-sm" onclick="searchFoodMap('台湾ラーメン', 'nagoya')">🚉 JR名古屋駅周辺</button>
+            </div>
         </div>
+        
         <div class="tip-item">
             <strong>☕ モーニング ＆ 小倉トースト</strong> <a href="https://ja.wikipedia.org/wiki/%E3%83%A2%E3%83%BC%E3%83%8B%E3%83%B3%E3%82%B0%E3%82%B5%E3%83%BC%E3%83%93%E3%82%B9" target="_blank">[詳細]</a><br>
             コーヒー1杯でトーストがついてくる素敵な文化。<a href="https://www.komeda.co.jp/" target="_blank">コメダ珈琲店</a>のシロノワールや小倉トーストは絶対食べてちょうだい。
+            <div class="map-action-btns">
+                <button class="btn-sm" onclick="searchFoodMap('モーニング 喫茶店', 'current')">📍 現在地の周辺で探す</button>
+                <button class="btn-sm" onclick="searchFoodMap('モーニング 喫茶店', 'nagoya')">🚉 JR名古屋駅周辺</button>
+            </div>
         </div>
+        
         <div class="tip-item">
             <strong>🍝 あんかけスパゲッティ</strong><br>
             極太麺にピリッと胡椒が効いたトマトベースの餡を絡めるB級グルメ。「ヨコイ」や「チャオ」が定番だわ。
+            <div class="map-action-btns">
+                <button class="btn-sm" onclick="searchFoodMap('あんかけスパゲッティ', 'current')">📍 現在地の周辺で探す</button>
+                <button class="btn-sm" onclick="searchFoodMap('あんかけスパゲッティ', 'nagoya')">🚉 JR名古屋駅周辺</button>
+            </div>
         </div>
+        
         <div class="tip-item">
             <strong>🍜 きしめん</strong><br>
             平べったいツルツルの麺が特徴だわ。新幹線ホームにある「住よし」は出張族のオアシスだでね。
+            <div class="map-action-btns">
+                <button class="btn-sm" onclick="searchFoodMap('きしめん', 'current')">📍 現在地の周辺で探す</button>
+                <button class="btn-sm" onclick="searchFoodMap('きしめん', 'nagoya')">🚉 JR名古屋駅周辺</button>
+            </div>
         </div>
+        
         <div class="tip-item">
             <strong>🍤 天むす（てんむす）</strong><br>
             小ぶりのおにぎりに、エビの天ぷらが入ってるわ。「千寿」や「地雷也」が有名。差し入れにピッタリだでね。
+            <div class="map-action-btns">
+                <button class="btn-sm" onclick="searchFoodMap('天むす', 'current')">📍 現在地の周辺で探す</button>
+                <button class="btn-sm" onclick="searchFoodMap('天むす', 'nagoya')">🚉 JR名古屋駅周辺</button>
+            </div>
         </div>
+        
         <div class="tip-item">
             <strong>🍢 どて煮 ＆ 味噌おでん</strong><br>
             牛すじや豚モツを八丁味噌でドロドロになるまで煮込んだものだわ。居酒屋に行ったらとりあえず頼む一品。
+            <div class="map-action-btns">
+                <button class="btn-sm" onclick="searchFoodMap('どて煮 味噌おでん', 'current')">📍 現在地の周辺で探す</button>
+                <button class="btn-sm" onclick="searchFoodMap('どて煮 味噌おでん', 'nagoya')">🚉 JR名古屋駅周辺</button>
+            </div>
         </div>
+        
         <div class="tip-item">
             <strong>🍡 なごやスイーツ（ういろう・ぴよりん）</strong><br>
             もっちりした「青柳ういろう」は定番のおやつ。最近は可愛いひよこ型のスイーツ「ぴよりん」も大行列だでね！
+            <div class="map-action-btns">
+                <button class="btn-sm" onclick="searchFoodMap('スイーツ', 'current')">📍 現在地の周辺で探す</button>
+                <button class="btn-sm" onclick="searchFoodMap('スイーツ', 'nagoya')">🚉 JR名古屋駅周辺</button>
+            </div>
         </div>
     </div>
 </div>
@@ -620,7 +725,7 @@ function switchTab(id) {
 function routeTo(inputId) {
     const dest = document.getElementById(inputId).value.trim();
     if (!dest) { alert('行き先をご入力してちょうだいね'); return; }
-    // 正規のルート検索URLに変更
+    // Google Maps公式のルート検索URLに変更
     window.open('https://www.google.com/maps/dir/?api=1&destination=' + encodeURIComponent(dest), '_blank');
 }
 
@@ -635,12 +740,10 @@ function initMap() {
         (pos) => {
             const lat = pos.coords.latitude;
             const lng = pos.coords.longitude;
-            // 正規の埋め込み地図URLに変更
             frameEl.src = 'https://maps.google.co.jp/maps?q=' + lat + ',' + lng + '&z=15&output=embed';
             statusEl.textContent = '✅ 現在地取得に成功したわ！周辺マップを表示してるでね';
         },
         (err) => {
-            // 正規の埋め込み地図URLに変更
             frameEl.src = 'https://maps.google.co.jp/maps?q=名古屋駅&output=embed';
             statusEl.textContent = '❌ 位置情報が取得できなかったで、名古屋駅周辺を表示しておくわね';
         },
@@ -649,14 +752,35 @@ function initMap() {
 }
 
 function searchNearby(kw) {
-    // 正規の周辺検索URLに変更
-    window.open('https://www.google.com/maps/search/' + encodeURIComponent(kw), '_blank');
+    // Google Maps公式の検索URLに変更
+    window.open('https://www.google.com/maps/search/?api=1&query=' + encodeURIComponent(kw + ' 近く'), '_blank');
+}
+
+// ===== TOURIST SPOT MAP SEARCH =====
+function openMapSpot(spotName) {
+    window.open('https://www.google.com/maps/search/?api=1&query=' + encodeURIComponent(spotName), '_blank');
+}
+
+function routeToSpot(spotName) {
+    window.open('https://www.google.com/maps/dir/?api=1&destination=' + encodeURIComponent(spotName), '_blank');
+}
+
+// ===== FOOD MAP SEARCH =====
+function searchFoodMap(foodName, searchType) {
+    let query = '';
+    if (searchType === 'current') {
+        query = foodName + ' 近く';
+    } else if (searchType === 'nagoya') {
+        // "愛知県 名古屋駅周辺" と指定することで他県の同名店舗の混入を防ぎます
+        query = '愛知県 名古屋駅周辺 ' + foodName;
+    }
+    // Google Maps公式の検索URLに変更
+    window.open('https://www.google.com/maps/search/?api=1&query=' + encodeURIComponent(query), '_blank');
 }
 
 // ===== WEATHER (Nagoya) =====
 async function loadWeather() {
     try {
-        // 名古屋の緯度経度 (35.1815, 136.9066)
         const r = await fetch(`https://api.open-meteo.com/v1/forecast?latitude=35.1815&longitude=136.9066&current=temperature_2m,weathercode,windspeed_10m,relative_humidity_2m&daily=weathercode,temperature_2m_max,temperature_2m_min&timezone=Asia%2FTokyo&forecast_days=3`);
         const d = await r.json();
         
@@ -717,7 +841,6 @@ async function submitToAI() {
     const now = new Date();
     const dateString = `${now.getFullYear()}年${now.getMonth()+1}月${now.getDate()}日`;
 
-    // GAS URL（既存のものを維持）
     const gasUrl = 'https://script.google.com/macros/s/AKfycbxT2T8HcLaGMSnaKzwR0AbtXu1QD6tZ5e638EHaQwI5zW4nrgTsYTW_QaJFhyoyvg/exec'; 
 
     const prompt = `あなたは多忙なビジネスパーソンを優しくサポートする優秀な秘書AIです。以下のユーザーの今日の「よかったこと」と「悪かったこと」を分析し、明日への活力となるような労いと論理的なフィードバックを2〜3文程度で返してください。トーンは丁寧で温かみがあり、語尾や表現に「女性らしく自然で上品な名古屋弁（〜だわ、〜でね、〜てちょうだいね、など）」を使ってください。大げさなエセ名古屋弁は避けてください。
